@@ -11,11 +11,16 @@
   ]
 </script>
 
-<main>
-  <h1>TEXT</h1>
-  <Button variant="primary" disabled={true}>Hola</Button>
-  <p data-ui="primary outline size">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, voluptatem eveniet illo provident doloribus ab soluta placeat cum assumenda! Magnam explicabo repellendus nostrum corrupti accusantium reprehenderit nobis odit autem eveniet.</p>
+<header>
   <section>
+    <h1>
+      <span>Hero layout with</span>
+    </h1>
+    <p data-ui="outline size">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, voluptatem eveniet illo provident doloribus ab soluta placeat cum assumenda! Magnam explicabo repellendus nostrum corrupti accusantium reprehenderit nobis odit autem eveniet.</p>
+    <div class="button-list">
+      <Button disabled={true}>Hola</Button>
+      <Button variant="primary" disabled={true}>Hola</Button>
+    </div>
     <Accordion>
       {#each items as item}
       <AccordionItem>
@@ -26,15 +31,32 @@
       {/each}
     </Accordion>
   </section>
-</main>
+  <picture class="promo-art">
+    <img src="https://opendoodles.s3-us-west-1.amazonaws.com/selfie.svg" height="700" width="700" alt="a random doodle">
+  </picture>
+</header>
 
 <style>
-  h1 {
+  header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    background: var(--surface-1);
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  h1 span {
     font-family: Jost, sans-serif;
     font-weight: bold;
     font-size: var(--font-size-fluid-3);
-    background-image: linear-gradient(indigo, hotpink);
+    background-image: linear-gradient(var(--primary), var(--white));
     background-clip: text;
     color: transparent;
+  }
+  :root {
+    --accordion-width: 100%;
   }
 </style>

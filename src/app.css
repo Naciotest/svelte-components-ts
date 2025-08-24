@@ -1,22 +1,37 @@
-@import "https://unpkg.com/open-props";
+@import url("https://unpkg.com/open-props");
+@import url("https://unpkg.com/open-props/normalize.min.css");
 
 :root {
+  /* COLORS */
+  --primary: #535bf2;
+  --primary-accent: #646cff;
+  --white: white;
+  --black: black;
+  --error: #900f0f;
+
+  /* Fonts */
+  --font-size-base: 1rem;
+  --font-line-base: 1.4;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  line-height: var(--font-line-base);
+  font-weight: var(--font-weight-regular);
   color-scheme: light dark;
-  color: rgb(255 255 255 / 87%);
-  background-color: #242424;
+  color: var(--black);
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-color: white;
-    --background-color: black;
+  /* ------------------------------------------------------------------ UI */
+
+  /* color scheme */
+  @media (prefers-color-scheme: dark) {
+    --foreground-color: var(--white);
+    --background-color: var(--black);
   }
 }
 
@@ -33,6 +48,8 @@
 } */
 
 h1,h2, h3, h4 {
+  line-height: var(--font-line-base);
+  margin-top: 0;
   text-wrap: balance;
 }
 
@@ -49,10 +66,16 @@ a:hover {
   color: #535bf2;
 } */
 html {
-  font-size: 1rem;
+  font-size: var(--font-size-base);
 }
 
-body {
+#app {
+  display: flex;
+  justify-content: space-around;
+  height: 100dvh;
+}
+
+/* body {
   background: var(--background-color, white);
   color: var(--foreground-color, black);
   margin: 0;
@@ -63,8 +86,13 @@ body {
   min-height: 100dvh;
 }
 
+main {
+  margin-inline: auto;
+  max-width: 64rem;
+} */
+
 [data-ui~="primary"] {
-  color: red;
+  color: var(--primary);
 }
 
 [data-ui~="outline"] {
@@ -72,7 +100,7 @@ body {
 }
 
 [data-ui]:not([data-ui~="primary"])[data-ui~="size"] {
-  padding: 10rem;
+  padding: 1rem;
 }
 
 [data-ui~="h:"]:hover {
